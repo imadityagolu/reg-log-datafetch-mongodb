@@ -29,7 +29,7 @@ function Login() {
     
     try {
       const response = await fetch('http://localhost:8080/api/login', {
-        method: 'POST',
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -47,6 +47,7 @@ function Login() {
         email: '',
         password: ''
       });
+      
     } catch (err) {
       setError(err.message);
     }
@@ -86,6 +87,13 @@ function Login() {
         <br></br>
 
         <Link to="/Register">Don't have an accout? Register</Link>
+
+        <br></br><br></br>
+
+        
+        {error && <div className="error">{error}</div>}
+        {success && <div className="success">{success}</div>}
+
       </div>
     </>
   )

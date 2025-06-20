@@ -13,7 +13,7 @@ function Register() {
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
 
-  //handle form input change
+  //handle form input change - for input fields
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm(prevForm => ({
