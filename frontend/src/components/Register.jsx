@@ -59,7 +59,7 @@ function Register() {
       <div>
         <form onSubmit={handleSubmit}>
 
-          <h1>Register</h1>
+          <h1>Admin Register</h1>
 
           <label>Enter Full Name</label>
           <input type="text" 

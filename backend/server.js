@@ -6,7 +6,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const registerRoutes = require('./routes/register.routes');
-const loginRoutes = require('./routes/login.routes');
+const dashboardRoutes = require('./routes/dashboard.routes');
+const clientRoutes = require('./routes/client.routes');
 
 const mongoURI = process.env.MONGO_URI || 'mongodb+srv://adityasng420ak:aditya12345@cluster0.fgxyhi8.mongodb.net/test';
 mongoose.connect(mongoURI)
@@ -18,7 +19,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use(registerRoutes);
-app.use(loginRoutes);
+app.use(dashboardRoutes);
+app.use(clientRoutes);
 
 const PORT = process.env.PORT || 8080;
 

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Login() {
 
@@ -11,6 +11,7 @@ function Login() {
 
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
+  const navigate = useNavigate();
 
   //handle form input change
   const handleChange = (e) => {
@@ -29,7 +30,7 @@ function Login() {
     
     try {
       const response = await fetch('http://localhost:8080/api/login', {
-        method: 'GET',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
@@ -47,6 +48,8 @@ function Login() {
         email: '',
         password: ''
       });
+      localStorage.setItem('userLoggedIn', 'true');
+      navigate('/dashboard');
       
     } catch (err) {
       setError(err.message);
@@ -61,7 +64,7 @@ function Login() {
         {error && <div className="error">{error}</div>}
         {success && <div className="success">{success}</div>}
 
-          <h1>Login</h1>
+          <h1>Admin Login</h1>
 
           <label>Enter email</label>
           <input type="email" 
@@ -84,15 +87,9 @@ function Login() {
           <button type="submit">Login</button>
         </form>
 
-        <br></br>
-
-        <Link to="/Register">Don't have an accout? Register</Link>
-
+        <br />
+        <Link to="/ClientLogin">Login as client</Link>
         <br></br><br></br>
-
-        
-        {error && <div className="error">{error}</div>}
-        {success && <div className="success">{success}</div>}
 
       </div>
     </>

@@ -2,6 +2,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import First from './components/First.jsx';
 import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
+import Dashboard from './components/Dashboard.jsx';
+import ClientRegister from './components/ClientRegister.jsx';
+import ClientLogin from './components/ClientLogin.jsx';
+import ClientDashboard from './components/ClientDashboard.jsx';
 
 import './App.css'
 
@@ -13,7 +17,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Register/>
+        element: <ClientLogin/>
       },
       {
         path: "/Login",
@@ -22,6 +26,22 @@ const router = createBrowserRouter([
       {
         path: "/Register",
         element: <Register/>
+      },
+      {
+        path: "/dashboard",
+        element: <Dashboard/>
+      },
+      {
+        path: "/ClientRegister",
+        element: <ClientRegister/>
+      },
+      {
+        path: "/ClientLogin",
+        element: <ClientLogin/>
+      },
+      {
+        path: "/client-dashboard",
+        element: <ClientDashboard/>
       }
     ],
   }
